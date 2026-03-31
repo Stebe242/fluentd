@@ -1,5 +1,5 @@
 # vim:set ft=dockerfile:
-ARG BASEIMAGE=ubuntu:rolling
+ARG BASEIMAGE=ubuntu:24.04
 FROM $BASEIMAGE
 LABEL maintainer="Stephan Zander <stephan.zander@lucas-nuelle.de>"
 
@@ -17,8 +17,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y -q \
     ruby-strptime \
     ruby-tzinfo \
     ruby-yajl \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # https://rubygems.org/gems/fluentd
 ARG VERSION=1.15.2
